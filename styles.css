@@ -1,0 +1,28 @@
+:root, *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.card{
+    border: 1px solid black;
+    height: 200px;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.card p:first-child{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px ;
+}
