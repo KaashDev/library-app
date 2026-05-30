@@ -17,7 +17,7 @@ function addBookToLibrary(book){
 }
 
 function display(){
-    for(const book in myLibrary){
+    for(const book of myLibrary){
         const card = document.createElement("div");
         card.classList.add("card");
 
@@ -38,3 +38,7 @@ addBookToLibrary(book1);
 addBookToLibrary(book2);
 display();
 
+const addBtn = document.querySelector(".addBtn");
+addBtn.addEventListener = function(){
+    
+}
