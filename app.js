@@ -18,9 +18,21 @@ function addBookToLibrary(book){
 
 function display(){
     container.innerHTML="";
+
     for(const book of myLibrary){
         const card = document.createElement("div");
         card.classList.add("card");
+
+        const removeCardDiv = document.createElement("div");
+        removeCardDiv.classList.add("cardBtns");
+        const removeCardBtn = document.createElement("button");
+        removeCardBtn.textContent = "Remove";
+        removeCardBtn.setAttribute("data-id", book.id);
+        removeCardBtn.addEventListener("click", (event)=>{
+            removeCard(event.target.dataset.id);
+        });
+        removeCardDiv.appendChild(removeCardBtn);
+        card.appendChild(removeCardDiv);
 
         for(const property in book){
             if(property != "id"){
@@ -64,3 +76,9 @@ addBookBtn.addEventListener("click", (event)=>{
     addModal.close();
     display();
 });
+
+function removeCard(id){
+    const index = myLibrary.findIndex(book => book.id === id);
+    myLibrary.splice(index, 1);
+    display();
+}
