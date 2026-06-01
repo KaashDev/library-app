@@ -12,6 +12,13 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
+Book.prototype.toggleRead = function(){
+    if(this.read === "Not Read Yet"){
+        this.read = "Read";
+    } else{
+        this.read = "Not Read Yet";
+    }
+}
 function addBookToLibrary(book){
     myLibrary.push(book);
 }
@@ -35,12 +42,19 @@ function display(){
         card.appendChild(removeCardDiv);
 
         for(const property in book){
-            if(property != "id"){
+            if(property != "id" && book.hasOwnProperty(property)){
                 const cardInfo = document.createElement("p");
                 cardInfo.textContent = book[property];
                 card.appendChild(cardInfo);
             }
         }
+        const toggleReadBtn = document.createElement("button");
+        toggleReadBtn.textContent = "Toggle Read";
+        toggleReadBtn.addEventListener("click", ()=>{
+            book.toggleRead();
+            display();
+        });
+        card.appendChild(toggleReadBtn);
         container.appendChild(card);
         }
     }
