@@ -43,4 +43,16 @@ body{
     width: 200px;
     height: 300px;
     margin: auto;
+    
+}
+
+form{
+    padding: 20px;
+    gap:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+dialog button{
+    margin: 0 auto 0 auto;
 }

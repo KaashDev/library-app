@@ -39,6 +39,13 @@ addBookToLibrary(book2);
 display();
 
 const addBtn = document.querySelector(".addBtn");
-addBtn.addEventListener = function(){
-    
-}
+const addModal = document.querySelector(".addModal");
+const closeBtn = document.querySelector(".closeBtn");
+
+addBtn.addEventListener("click", ()=>{
+    addModal.showModal();
+});
+
+closeBtn.addEventListener("click", ()=>{
+    addModal.close();
+});
