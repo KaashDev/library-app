@@ -17,6 +17,7 @@ function addBookToLibrary(book){
 }
 
 function display(){
+    container.innerHTML="";
     for(const book of myLibrary){
         const card = document.createElement("div");
         card.classList.add("card");
@@ -41,6 +42,7 @@ display();
 const addBtn = document.querySelector(".addBtn");
 const addModal = document.querySelector(".addModal");
 const closeBtn = document.querySelector(".closeBtn");
+const addBookBtn = document.querySelector(".addBookBtn");
 
 addBtn.addEventListener("click", ()=>{
     addModal.showModal();
@@ -48,4 +50,17 @@ addBtn.addEventListener("click", ()=>{
 
 closeBtn.addEventListener("click", ()=>{
     addModal.close();
+});
+
+addBookBtn.addEventListener("click", (event)=>{
+    event.preventDefault();
+    const formTitle = document.querySelector("#form-title");
+    const formAuthor = document.querySelector("#form-author");
+    const formPages = document.querySelector("#form-pages");
+    const formRead = document.querySelector("#form-read");
+
+    const newBook = new Book(formTitle.value, formAuthor.value, parseInt(formPages.value), formRead.value);
+    addBookToLibrary(newBook);
+    addModal.close();
+    display();
 });

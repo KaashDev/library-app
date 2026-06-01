@@ -38,12 +38,13 @@ body{
     margin-right: 20px;
 }
 
-#my-dialog{
+.addModal{
     position: absolute;
     width: 200px;
     height: 300px;
     margin: auto;
-    
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 form{
@@ -55,4 +56,9 @@ form{
 
 dialog button{
     margin: 0 auto 0 auto;
+}
+
+.modalBtns{
+    display: flex;
+    justify-content: center;
 }
