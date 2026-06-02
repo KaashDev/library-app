@@ -31,9 +31,9 @@ function display(){
         card.classList.add("card");
 
         const removeCardDiv = document.createElement("div");
-        removeCardDiv.classList.add("cardBtns");
+        removeCardDiv.classList.add("cardTopBtns");
         const removeCardBtn = document.createElement("button");
-        removeCardBtn.textContent = "Remove";
+        removeCardBtn.textContent = "×";
         removeCardBtn.setAttribute("data-id", book.id);
         removeCardBtn.addEventListener("click", (event)=>{
             removeCard(event.target.dataset.id);
@@ -44,11 +44,17 @@ function display(){
         for(const property in book){
             if(property != "id" && book.hasOwnProperty(property)){
                 const cardInfo = document.createElement("p");
-                cardInfo.textContent = book[property];
+                if (property === "title"){
+                    cardInfo.textContent = book[property];
+                } else{
+                    cardInfo.textContent = property + ": " + book[property];
+                }
+                
                 card.appendChild(cardInfo);
             }
         }
         const toggleReadBtn = document.createElement("button");
+        toggleReadBtn.classList.add("toggleReadBtn");
         toggleReadBtn.textContent = "Toggle Read";
         toggleReadBtn.addEventListener("click", ()=>{
             book.toggleRead();
