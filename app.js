@@ -65,8 +65,8 @@ function display(){
         }
     }
 
-const book1 = new Book("Tadaaa", "Toktok", 123, "Read");
-const book2 = new Book("Boom", "Tiktik", 367, "Not Read Yet");
+const book1 = new Book("The Da Vinci Code", "Dan Brown", 2543, "Read");
+const book2 = new Book("Murdle", "G.T Karber", 3167, "Not Read Yet");
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 display();
