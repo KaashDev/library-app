@@ -1,24 +1,24 @@
 const myLibrary = [];
 const container = document.querySelector(".container");
 
-function Book(title, author, pages, read){
-    if(!new.target){
-        throw Error("Use the 'new operator");
-    }
+class Book{
+    constructor(title, author, pages, read){
     this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-}
+    }
 
-Book.prototype.toggleRead = function(){
-    if(this.read === "Not Read Yet"){
-        this.read = "Read";
-    } else{
-        this.read = "Not Read Yet";
+    toggleRead(){
+        if(this.read === "Not Read Yet"){
+            this.read = "Read";
+        } else{
+            this.read = "Not Read Yet";
+        }
     }
 }
+
 function addBookToLibrary(book){
     myLibrary.push(book);
 }
